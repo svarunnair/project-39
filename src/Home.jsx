@@ -4,7 +4,10 @@ function Home() {
 
     const [move,setMove]=useState("x")
     const [board,setBoard]=useState(Array(9).fill(''))
+    const [show,setShow]=useState(false)
+    
 
+    console.log("movvee",move)
 
    const handleChange=(n)=>{
       let square=[...board]
@@ -22,9 +25,12 @@ function Home() {
       }
 
       if(checkWin(square)){
+       
         alert("Winner")
         square.fill('')
         setBoard(square)
+        setShow(move)
+        
       }
       if(checkDraw(square)){
         alert('Match Draw')
@@ -50,29 +56,6 @@ function Home() {
         }
    }
 
-//    const checkWin=(board)=>{
-//     const conditions=[
-//         [0,1,2],
-//         [3,4,5],
-//         [6,7,8],
-//         [0,3,6],
-//         [1,4,7],
-//         [0,4,8],
-//         [2,5,8],
-//         [2,4,6],
-//     ]
-//     let flag=false
-//     conditions.forEach(element=>{
-//         if(board[element[0]]!==''&&board[element[1]]!==''&&board[element[2]]!==''){
-//             if(board[element[0]]===board[element[1]]&&board[element[1]]===board[element[2]]){
-//                 flag=true
-//             }
-//         }
-        
-//     })
-//     return flag
-//    }
-  
 
 
 const checkWin = (board) => {
@@ -100,6 +83,7 @@ const checkWin = (board) => {
     <div style={{display:"flex",flexDirection:"column",paddingTop:100}}>
 
         <text style={{padding:20,fontWeight:600,}}>Tic-Tac-Toe</text>
+        {show?<text style={{padding:20,fontWeight:600,}}>Winner is {show}</text>:<></>}
 
     <div style={{display:"flex",justifyContent:"center",alignItems:"center",}}>
 
