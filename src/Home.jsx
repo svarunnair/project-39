@@ -39,6 +39,7 @@ function Home() {
       }
        
    }
+   console.log("object",checkDraw)
 
    const checkDraw=(board)=>{
     let count=0
