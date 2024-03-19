@@ -41,6 +41,8 @@ function Home() {
    }
    console.log("object",checkDraw)
    console.log("object")
+   console.log("object")
+
 
    const checkDraw=(board)=>{
     let count=0
